@@ -17,11 +17,14 @@ class User extends Authenticatable
      *
      * @var list<string>
      */
-    protected $fillable = [
+
+    // = Não precisa do fillable pois ja colocou no provider que todo Model deve ser guard, sendo assim nao bloqueia nenhum campo de ser registrado no banco 
+
+    /* protected $fillable = [
         'name',
         'email',
         'password',
-    ];
+    ]; */
 
     /**
      * The attributes that should be hidden for serialization.
