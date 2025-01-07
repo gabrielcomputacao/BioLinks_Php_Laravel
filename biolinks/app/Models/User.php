@@ -48,4 +48,15 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    // ! IMPORTANTE
+
+    // = Laravel tenta procurar por uma propriedade link mas nao existe, entao ele tenta procurar por um metodo
+    // = ele é do tipo de relacionamento, entao o laravel ve que é de um relacionamento, ele executa a query no banco
+    // = e retorna os relacionamentos daquele metodo
+    public function links()
+    {
+        // desse modo o laravel sabe que esse model pode ter 1 ou muitos links associados
+        return $this->hasMany(Link::class);
+    }
 }

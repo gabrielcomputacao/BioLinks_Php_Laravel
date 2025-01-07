@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('link');
             $table->string('name');
+            // cria uma chave estrangeira no nome do model no singular, faz com que seja uma constrained e o ondelete seja cascade
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
